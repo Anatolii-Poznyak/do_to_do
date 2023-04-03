@@ -22,7 +22,7 @@ class Task(models.Model):
     tags = models.ManyToManyField(to=Tag, related_name="tasks")
 
     class Meta:
-        ordering = ["-done_mark", "-date"]
+        ordering = ["done_mark", "-date"]
         verbose_name = "task"
         verbose_name_plural = "tasks"
 
