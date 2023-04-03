@@ -21,7 +21,7 @@
             </a>
     {% endif %}
         </strong></p>
-        <p><small>Created: {{task.date}} {% if task.deadline %} <span class="text-danger"> Deadline: {{ task.deadline }} {% endif %}</span></small></p>
+        <p><small>Created: {{ task.date|date:"F j, Y, H:i" }} {% if task.deadline %} <span class="text-danger"> Deadline: {{ task.deadline|date:"F j, Y, H:i" }}{% endif %}</span></small></p>
         <p>
           Tags:
           {% for tag in task.tags.all %}
