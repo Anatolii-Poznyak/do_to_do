@@ -9,7 +9,18 @@
   <hr>
   {% if tasks %}
       {% for task in tasks %}
-        <p><strong>{{task.name}}{% if task.done_mark %} <span class="text-success">Done</span>{% else %} <span class="text-danger">Not done</span>{% endif %}</strong></p>
+        <p><strong>
+          {{task.name}}{% if task.done_mark %} <span class="text-success">Done</span>{% else %} <span class="text-danger">Not done</span>{% endif %}
+          {% if task.done_mark %}
+            <a href="#" class="btn btn-dark link-to-page">
+              Undo
+            </a>
+          {% else %}
+            <a href="#" class="btn btn-success link-to-page">
+              Complete
+            </a>
+    {% endif %}
+        </strong></p>
         <p><small>Created: {{task.date}} {% if task.deadline %} <span class="text-danger"> Deadline: {{ task.deadline }} {% endif %}</span></small></p>
         <p>
           Tags:
