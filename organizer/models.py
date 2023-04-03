@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse_lazy
 
 
-class Tags(models.Model):
+class Tag(models.Model):
     name = models.CharField(max_length=63, unique=True)
 
     class Meta:
