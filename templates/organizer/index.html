@@ -3,5 +3,11 @@
 {% block content %}
   <h1>Do-to-do home page</h1>
   <p>List of all tasks</p>
+  {% for task in tasks_list %}
+    <ul>
+    <li>{{ task }}</li>
+    </ul>
+
+  {% endfor %}
 
 {% endblock %}

@@ -9,9 +9,10 @@ def index(request):
     tags = Tag.objects.all()
 
     context = {
-        "Our tasks": tasks,
-        "Our tags": tags,
+        "tasks_list": tasks,
+        "tags_list": tags,
 
     }
 
     return render(request, "organizer/index.html", context=context)
+
