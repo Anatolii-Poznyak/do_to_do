@@ -6,19 +6,19 @@
       Add task
     </a>
   </h1>
-
+  <hr>
   {% if tasks %}
       {% for task in tasks %}
-        <p><strong>{{task.name}} {{ task.done_mark }}</strong></p>
-        <p>{{task.date}}</p>
+        <p><strong>{{task.name}}{% if task.done_mark %} <span class="text-success">Done</span>{% else %} <span class="text-danger">Not done</span>{% endif %}</strong></p>
+        <p><small>Created: {{task.date}} {% if task.deadline %} <span class="text-danger"> Deadline: {{ task.deadline }} {% endif %}</span></small></p>
         <p>
           Tags:
           {% for tag in task.tags.all %}
-            {{ tag.name }}<a href="#">Update</a><a href="#">Delete</a>
-            <hr>
+            #{{ tag.name }}
           {% endfor %}
-
+         <a href="#">Update</a> <a href="#">Delete</a>
         </p>
+        <hr>
       {% endfor %}
   {% else %}
       <p>There are no tasks yet! </p>
