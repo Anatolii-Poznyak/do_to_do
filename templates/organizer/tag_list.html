@@ -21,12 +21,12 @@
               {{ tag.name }}
           </td>
           <td>
-              <a href="#" class="btn btn-secondary link-to-page">
+              <a href="{% url 'organizer:tag-update' pk=tag.id %}" class="btn btn-secondary">
                 Update
               </a>
             </td>
             <td>
-              <a href="#" class="btn btn-secondary link-to-page">
+              <a href="#" class="btn btn-secondary">
                 Delete
               </a>
             </td>

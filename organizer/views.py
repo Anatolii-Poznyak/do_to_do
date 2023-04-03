@@ -35,3 +35,10 @@ class TagCreateView(generic.CreateView):
     model = Tag
     success_url = reverse_lazy("organizer:tag-list")
     fields = "__all__"
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("organizer:tag-list")
+
