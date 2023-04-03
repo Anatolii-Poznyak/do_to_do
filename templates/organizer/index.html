@@ -1,12 +1,27 @@
 {% extends "base.html" %}
-
 {% block content %}
-  <h1>Do-to-do home page</h1>
-  <p>List of all tasks</p>
-  <ul>
-    {% for task in tasks %}
-      <li>{{ task }}</li>
-    {% endfor %}
-  </ul>
+  <h1>
+    DO-TO-DO list
+    <a href="#" class="btn btn-primary">
+      Add task
+    </a>
+  </h1>
 
+  {% if tasks %}
+      {% for task in tasks %}
+        <p><strong>{{task.name}} {{ task.done_mark }}</strong></p>
+        <p>{{task.date}}</p>
+        <p>
+          Tags:
+          {% for tag in task.tags.all %}
+            {{ tag.name }}<a href="#">Update</a><a href="#">Delete</a>
+            <hr>
+          {% endfor %}
+
+        </p>
+      {% endfor %}
+  {% else %}
+      <p>There are no tasks yet! </p>
+  {% endif %}
 {% endblock %}
+
