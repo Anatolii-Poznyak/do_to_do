@@ -65,4 +65,5 @@ def complete_or_undo_task(request, pk):
         task.done_mark = False
     else:
         task.done_mark = True
+    task.save()
     return HttpResponseRedirect(reverse_lazy("organizer:index"))

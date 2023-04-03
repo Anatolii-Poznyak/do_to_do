@@ -12,11 +12,11 @@
         <p><strong>
           {{task.name}}{% if task.done_mark %} <span class="text-success">Done</span>{% else %} <span class="text-danger">Not done</span>{% endif %}
           {% if task.done_mark %}
-            <a href="#" class="btn btn-dark link-to-page">
+            <a href="{% url 'organizer:complete-or-undo-task' pk=task.id%}" class="btn btn-dark link-to-page">
               Undo
             </a>
           {% else %}
-            <a href="#" class="btn btn-success link-to-page">
+            <a href="{% url 'organizer:complete-or-undo-task' pk=task.id%}" class="btn btn-success link-to-page">
               Complete
             </a>
     {% endif %}
