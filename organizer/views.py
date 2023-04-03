@@ -31,6 +31,11 @@ class TaskUpdateView(generic.UpdateView):
     success_url = reverse_lazy("organizer:index")
 
 
+class TaskDeleteView(generic.DeleteView):
+    model = Task
+    success_url = reverse_lazy("organizer:index")
+
+
 class TagListView(generic.ListView):
     model = Tag
     paginate_by = 5
