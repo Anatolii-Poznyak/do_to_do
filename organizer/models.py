@@ -19,7 +19,7 @@ class Task(models.Model):
     date = models.DateField(auto_now_add=True)
     deadline = models.DateField(null=True, blank=True)
     done_mark = models.BooleanField(default=False)
-    tags = models.ManyToManyField(to=Tags, related_name="tasks")
+    tags = models.ManyToManyField(to=Tag, related_name="tasks")
 
     class Meta:
         ordering = ["-done_mark", "-date"]

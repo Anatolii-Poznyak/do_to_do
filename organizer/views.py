@@ -6,7 +6,7 @@ from organizer.models import Task, Tag
 def index(request):
 
     tasks = Task.objects.all()
-    tags = Tag.objects.count()
+    tags = Tag.objects.all()
 
     context = {
         "Our tasks": tasks,
@@ -14,4 +14,4 @@ def index(request):
 
     }
 
-    return render(request, "", context=context)
+    return render(request, "organizer/index.html", context=context)
