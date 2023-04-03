@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from organizer.forms import TaskCreationForm
+from organizer.forms import TaskForm
 from organizer.models import Task, Tag
 
 
@@ -21,9 +21,14 @@ def index(request):
 
 class TaskCreateView(generic.CreateView):
     model = Task
-    # fields = "__all__"
     success_url = reverse_lazy("organizer:index")
-    form_class = TaskCreationForm
+    form_class = TaskForm
+
+
+class TaskUpdateView(generic.UpdateView):
+    model = Task
+    form_class = TaskForm
+    success_url = reverse_lazy("organizer:index")
 
 
 class TagListView(generic.ListView):
@@ -46,3 +51,4 @@ class TagUpdateView(generic.UpdateView):
 class TagDeleteView(generic.DeleteView):
     model = Tag
     success_url = reverse_lazy("organizer:tag-list")
+
