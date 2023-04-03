@@ -19,13 +19,18 @@ def index(request):
     return render(request, "organizer/index.html", context=context)
 
 
-class TagListView(generic.ListView):
-    model = Tag
-    paginate_by = 5
-
-
 class TaskCreateView(generic.CreateView):
     model = Task
     # fields = "__all__"
     success_url = reverse_lazy("organizer:index")
     form_class = TaskCreationForm
+
+
+class TagListView(generic.ListView):
+    model = Tag
+    paginate_by = 5
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    success_url = reverse_lazy("organizer:tag-list")
