@@ -16,7 +16,7 @@
           {% for tag in task.tags.all %}
             #{{ tag.name }}
           {% endfor %}
-         <a href="#">Update</a> <a href="#">Delete</a>
+         <a href="{% url 'organizer:task-update' pk=task.id %}">Update</a> <a href="{% url 'organizer:task-delete' pk=task.id %}">Delete</a>
         </p>
         <hr>
       {% endfor %}
