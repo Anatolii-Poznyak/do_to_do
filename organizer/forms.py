@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import DateTimeInput
 
 from organizer.models import Task, Tag
 
@@ -13,3 +14,9 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = "__all__"
+        widgets = {
+            "deadline": DateTimeInput(attrs={
+                "type": "datetime-local"
+            }, format="%Y-%m-%dT%H:%M"
+            )
+        }
